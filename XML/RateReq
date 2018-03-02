@@ -1,0 +1,81 @@
+<?xml version="1.0" ?> 
+<req:ShipmentRequest schemaVersion="6.0" xmlns:req="http://www.dhl.com">
+<Request>
+<ServiceHeader>
+  <MessageTime>2018-02-27T09:26:55+00:00</MessageTime> 
+  <MessageReference>b7b3d27a000f4bc387c53e5b98e85b26</MessageReference> 
+  <SiteID>ID</SiteID> 
+  <Password>PASSWORD</Password> 
+  </ServiceHeader>
+  </Request>
+  <LanguageCode>EN</LanguageCode> 
+  <PiecesEnabled>Y</PiecesEnabled> 
+<Billing>
+  <ShipperAccountNumber>ACCOUNT</ShipperAccountNumber> 
+  <ShippingPaymentType>S</ShippingPaymentType> 
+  <BillingAccountNumber>ACCOUNT</BillingAccountNumber> 
+  <DutyPaymentType>R</DutyPaymentType> 
+  </Billing>
+<Consignee>
+  <CompanyName>Joe Bloggs</CompanyName> 
+  <AddressLine>Avenida</AddressLine> 
+  <City>La Linea</City> 
+  <PostalCode>11300</PostalCode> 
+  <CountryCode>ES</CountryCode> 
+  <CountryName>Spain</CountryName> 
+<Contact>
+  <PersonName>Joe Bloggs</PersonName> 
+  <PhoneNumber>+12345</PhoneNumber> 
+  </Contact>
+  </Consignee>
+<Reference>
+  <ReferenceID>TEST</ReferenceID> 
+  </Reference>
+<ShipmentDetails>
+  <NumberOfPieces>1</NumberOfPieces> 
+<Pieces>
+<Piece>
+  <PieceID>0</PieceID> 
+  <Weight>0.5</Weight> 
+  <PieceContents>TEST Ref</PieceContents> 
+<PieceReference>
+  <ReferenceID>Test Ref 1</ReferenceID> 
+  <ReferenceType>OI</ReferenceType> 
+  </PieceReference>
+<PieceReference>
+  <ReferenceID>Test 12</ReferenceID> 
+  <ReferenceType>TK</ReferenceType> 
+  </PieceReference>
+  </Piece>
+  </Pieces>
+  <Weight>0.5</Weight> 
+  <WeightUnit>K</WeightUnit> 
+  <GlobalProductCode>U</GlobalProductCode> 
+  <Date>2018-02-27</Date> 
+  <Contents>Test Contents</Contents> 
+  <DimensionUnit>C</DimensionUnit> 
+  <IsDutiable>Y</IsDutiable> 
+  <CurrencyCode>EUR</CurrencyCode> 
+  </ShipmentDetails>
+<Shipper>
+  <ShipperID>ACCOUNT</ShipperID> 
+  <CompanyName>A Company</CompanyName> 
+  <RegisteredAccount>ACCOUNT</RegisteredAccount> 
+  <AddressLine>Georges Street Upper</AddressLine> 
+  <AddressLine>The House</AddressLine> 
+  <AddressLine>The Road</AddressLine> 
+  <City>Dun Laoghaire</City> 
+  <PostalCode></PostalCode> 
+  <CountryCode>IE</CountryCode> 
+  <CountryName>Ireland, Republic Of</CountryName> 
+<Contact>
+  <PersonName>Shipping Department</PersonName> 
+  <PhoneNumber>00353</PhoneNumber> 
+  </Contact>
+  </Shipper>
+  <LabelImageFormat>PDF</LabelImageFormat> 
+  <RequestArchiveDoc>N</RequestArchiveDoc> 
+<Label>
+  <LabelTemplate>8X4_PDF</LabelTemplate> 
+  </Label>
+  </req:ShipmentRequest>
