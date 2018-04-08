@@ -30,7 +30,7 @@
           <?php 
           	echo $_SESSION['success']; 
           	unset($_SESSION['success']);
-          	header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/UserLandingPage.html');
+          	header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/UserLandingPage.php');
           ?>
       	</h3>
       </div>

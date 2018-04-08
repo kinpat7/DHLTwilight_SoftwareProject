@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+session_start();
+// 1. Enter Database details
+$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+$staffNo = $_SESSION['staffNo'];
+$sql = "SELECT * FROM shipments WHERE status='With Courier' AND staffNo = $staffNo";
+$result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+
+?>
+
 <html>
 
 <head>
@@ -12,21 +21,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
-    <div class="container">
-      <a class="navbar-brand" href="UserLandingPage.html"><b>DHL Twilight</b></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-          </li>
-        </ul>
-        <a class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i>Sign Out</a>
-      </div>
-    </div>
-  </nav>
+<?php include("header.php");?>
   <div class="py-5 text-center bg-primary gradient-overlay">
     <div class="container">
       <div class="row">
@@ -45,11 +40,25 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form>
-            <div class="form-group"> <label for="exampleTextarea">Capture AWB</label> <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-              <a class="btn text-center btn-primary" href=""><b>CAPTURE AWB</b></a>
+          
+          
+          <!--<form action="updateAWB.php" method="post">-->
+          <!--  <div class="form-group"> <label for="exampleTextarea">Capture AWB</label> <textarea type="submit" class="form-control" name="awb" id="exampleTextarea" rows="3"></textarea>-->
+          <!--    <a class="btn text-center btn-primary" ><b>CAPTURE AWB</b></a>-->
+          <!--  </div>-->
+          <!--</form>-->
+          
+          <form action="updateAWB.php" method="post">
+            <div class="form-group"> 
+            
+            <label for="exampleTextarea">Capture AWB<?php if(isset($_GET['error'])){echo" <p style='color:red'>No such AWB</p>";}?></label> 
+            <textarea class="form-control" name="awb" id="exampleTextarea" type="submit" rows="3"></textarea>
+            <!--<a class="btn text-center btn-primary" ><b>CAPTURE AWB</b></a>-->
+            <input type="submit" class="btn text-center btn-primary" value="CAPTURE AWB">
             </div>
           </form>
+          
+          
         </div>
       </div>
     </div>
@@ -57,58 +66,46 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <table class="table">
             <thead>
               <tr>
                 <th>#</th>
                 <th>AWB Number</th>
-                <th>Shipment Status
-                  <br> </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>1234567890</td>
-                <td>With Courier</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>0987654321</td>
-                <td>With Courier</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>9865321245</td>
-                <td>With Courier</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
+                <th>Shipment Status</th>
                 <th>Address</th>
+                <th>City</th>
+              </tr>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Clontarf Road, Clontarf, Dublin</td>
-              </tr>
-              <tr>
-                <td>2 Swords Road, Swords, Dubin</td>
-              </tr>
-              <tr>
-                <td>3 Balbriggan Street, Balbriggan, Dublin</td>
-              </tr>
+              <!--<tr>-->
+                <?php
+                $num = 1;
+                  while($row = mysqli_fetch_assoc($result)){
+                    
+                  
+                  echo "<tr><td>".$num."</td>";
+                  echo "<td>".$row['awb']."</td>";
+                  echo "<td>".$row['status']."</td>";
+                  echo "<td>".$row['address']."</td>";
+                  echo "<td>".$row['city']."</td></tr>";
+                  $num++;
+                  
+                  }
+                ?>
+                <!--<td>1</td>-->
+                <!--<td>1234567890</td>-->
+                <!--<td>With Courier</td>-->
+                <!--<td>erfghjk</td>-->
+              <!--</tr>-->
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
+  
   <div class="py-2">
     <div class="container">
       <div class="row">

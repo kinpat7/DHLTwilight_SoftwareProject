@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+session_start();
+// 1. Enter Database details
+$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+$staffNo = $_SESSION['staffNo'];
+$sql = "SELECT * FROM shipments WHERE status='With Courier' AND staffNo = $staffNo";
+$result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+
+?>
+
 <html>
 
 <head>
@@ -43,25 +52,41 @@
               <tr>
                 <th>Order of Delivery</th>
                 <th>AWB Number</th>
+                <th>Status</th>
                 <th>Address</th>
+                <th>City</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="">1</td>
-                <td>1234567890</td>
-                <td>1 Clontarf Road, CLontarf, Dublin</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>0987654321</td>
-                <td>2 Swords Road, Swords, Dublin</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>5647382910</td>
-                <td>3 Fairview Street, Fairview, Dublin</td>
-              </tr>
+                <?php
+                $num = 1;
+                  while($row = mysqli_fetch_assoc($result)){
+                    
+                  
+                  echo "<tr><td>".$num."</td>";
+                  echo "<td>".$row['awb']."</td>";
+                  echo "<td>".$row['status']."</td>";
+                  echo "<td>".$row['address']."</td>";
+                  echo "<td>".$row['city']."</td></tr>";
+                  $num++;
+                  
+                  }
+                ?>
+              <!--<tr>-->
+              <!--  <td class="">1</td>-->
+              <!--  <td>1234567890</td>-->
+              <!--  <td>1 Clontarf Road, CLontarf, Dublin</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+              <!--  <td>2</td>-->
+              <!--  <td>0987654321</td>-->
+              <!--  <td>2 Swords Road, Swords, Dublin</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+              <!--  <td>3</td>-->
+              <!--  <td>5647382910</td>-->
+              <!--  <td>3 Fairview Street, Fairview, Dublin</td>-->
+              <!--</tr>-->
             </tbody>
           </table>
         </div>
@@ -72,7 +97,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <img class="d-block mx-auto rounded img-fluid w-75" src="../Images/DublinMap.png" style=""> </div>
+        <iframe width="600" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/view?zoom=10&center=53.3498,-6.2603&key=AIzaSyC2aDgorzmbhYCXihJ-16R7opUvkgjec-A" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -80,12 +106,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-left">
-          <a class="btn btn-primary" href="CaptureNewShipment.html"><b>&lt; Add More Shipments</b></a>
+          <a class="btn btn-primary" href="CaptureNewShipment.php"><b>&lt; Add More Shipments</b></a>
         </div>
         <div class="col-md-6 text-right">
           <div class="row">
             <div class="col-md-12">
-              <a class="btn btn-primary" href="UpdateCheckpoint.html"><b>Update Checkpoint &gt;</b></a>
+              <a class="btn btn-primary" href="UpdateCheckpoint.php"><b>Update Checkpoint &gt;</b></a>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+ session_start();
+?>
 <html>
 
 <head>
@@ -42,7 +44,7 @@
               <h3>Log New Shipments</h3>
               <hr>
               <p>Start the new delivery process and log new shipments, view the optimal route planner, update checkpoints and capture the consignee POD!</p>
-              <a href="CaptureNewShipment.html" class="btn btn-dark">LOG NEW SHIPMENTS</a>
+              <a href="CaptureNewShipment.php" class="btn btn-dark">LOG NEW SHIPMENTS</a>
             </div>
           </div>
         </div>
@@ -53,7 +55,7 @@
               <h3>List of all completed deliveries you have made!</h3>
               <hr>
               <p>Click on the below button to view you delivery history</p>
-              <a href="ShipmentHistory.html" class="btn btn-dark">SHIPMENT HISTORY</a>
+              <a href="ShipmentHistory.php" class="btn btn-dark">SHIPMENT HISTORY</a>
             </div>
           </div>
         </div>

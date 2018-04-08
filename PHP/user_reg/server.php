@@ -63,11 +63,12 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$name', '$address', '$city', '$phone', '$dept', '$staffNo', '$email', '$username', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
+  	$_SESSION['staff_no'] = $staffNo;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: login.php');
   	
   }
-}//----------------------------------------------------
+}
 
 //LOGIN USER
 if (isset($_POST['login_user'])) {
@@ -87,8 +88,15 @@ if (isset($_POST['login_user'])) {
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
+  	  
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: index.php');
+  	  
+
+  	  while($row = mysqli_fetch_assoc($results)){
+  	    
+  	    $_SESSION['staffNo'] = $row['staffNo'];
+  	  }
+  	 header('location: index.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}

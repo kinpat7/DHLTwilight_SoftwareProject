@@ -1,4 +1,3 @@
-<?php include('cs_server.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
   <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="/DHLTwilight.css">
-  <link rel="stylesheet" href="/CSS/CSS_HomePage/DHLTwilight.css">
+  <link rel="stylesheet" href="../DHLTwilight.css">
+  <link rel="stylesheet" href="../CSS/CSS_HomePage/DHLTwilight.css">
 </head>
 
 <body>
@@ -47,69 +46,102 @@
       <div class="row">
         <div class="col-md-12">
           <form>
-            <div class="form-group"> <label for="exampleTextarea">Capture AWB</label> <textarea class="form-control" id="exampleTextarea" rows="3" ></textarea>
-              <a class="btn text-center btn-primary" name="capture_shipment" href=""><b>CAPTURE AWB</b></a>
+            <div class="form-group"> <label for="exampleTextarea">Capture AWB</label> <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+              <a class="btn text-center btn-primary" href=""><b>CAPTURE AWB</b></a>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>AWB Number</th>
-                <th>Shipment Status
-                  <br> </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>1234567890</td>
-                <td>With Courier</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>0987654321</td>
-                <td>With Courier</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>9865321245</td>
-                <td>With Courier</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1 Clontarf Road, Clontarf, Dublin</td>
-              </tr>
-              <tr>
-                <td>2 Swords Road, Swords, Dubin</td>
-              </tr>
-              <tr>
-                <td>3 Balbriggan Street, Balbriggan, Dublin</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+ <!-- -------------------------------->
+ 
+ <?php
+// 1. Enter Database details
+$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+
+$sql = "SELECT * FROM shipments WHERE status='With Courier'";
+$result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+
+echo"<table border ='1'>";
+echo"<tr>
+      <td>awb</td>
+      <td>status</td>
+      <td>address</td>
+      <td>city</td>
+     </tr>";
+
+while($row = mysqli_fetch_assoc($result)){
+  echo"<tr>
+      <td>{$row['awb']}</td>
+      <td>{$row['status']}</td>
+      <td>{$row['address']}</td>
+      <td>{$row['city']}</td>
+     </tr>\n";
+}
+
+echo "</table>";
+
+?>
+
+  
+  
+  
+  <!--<div class="py-5">-->
+  <!--  <div class="container">-->
+  <!--    <div class="row">-->
+  <!--      <div class="col-md-6">-->
+  <!--        <table class="table">-->
+  <!--          <thead>-->
+  <!--            <tr>-->
+  <!--              <th>#</th>-->
+  <!--              <th>AWB Number</th>-->
+  <!--              <th>Shipment Status-->
+  <!--                <br> </th>-->
+  <!--            </tr>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--            <tr>-->
+  <!--              <td>1</td>-->
+  <!--              <td>1234567890</td>-->
+  <!--              <td>With Courier</td>-->
+  <!--            </tr>-->
+  <!--            <tr>-->
+  <!--              <td>2</td>-->
+  <!--              <td>0987654321</td>-->
+  <!--              <td>With Courier</td>-->
+  <!--            </tr>-->
+  <!--            <tr>-->
+  <!--              <td>3</td>-->
+  <!--              <td>9865321245</td>-->
+  <!--              <td>With Courier</td>-->
+  <!--            </tr>-->
+  <!--          </tbody>-->
+  <!--        </table>-->
+  <!--      </div>-->
+  <!--      <div class="col-md-6">-->
+  <!--        <table class="table">-->
+  <!--          <thead>-->
+  <!--            <tr>-->
+  <!--              <th>Address</th>-->
+  <!--            </tr>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--            <tr>-->
+  <!--              <td>1 Clontarf Road, Clontarf, Dublin</td>-->
+  <!--            </tr>-->
+  <!--            <tr>-->
+  <!--              <td>2 Swords Road, Swords, Dubin</td>-->
+  <!--            </tr>-->
+  <!--            <tr>-->
+  <!--              <td>3 Balbriggan Street, Balbriggan, Dublin</td>-->
+  <!--            </tr>-->
+  <!--          </tbody>-->
+  <!--        </table>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
   <div class="py-2">
     <div class="container">
       <div class="row">

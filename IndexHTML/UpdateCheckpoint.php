@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+ <?php
+session_start();
+// 1. Enter Database details
+$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+$staffNo = $_SESSION['staffNo'];
+$sql = "SELECT * FROM shipments WHERE status='With Courier' AND staffNo = $staffNo";
+$sqlUpdates = "SELECT * FROM shipments WHERE status !='With Courier' AND staffNo = $staffNo";
+$result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+$resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
+?>
+
+
 <html>
 
 <head>
@@ -36,37 +47,48 @@
       </div>
     </div>
   </div>
+  
+<form action="https://dhltwilight-patrickking25.c9users.io/IndexHTML/updateStatus.php" method="post">  
   <div class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-center">
           <div class="btn-group btn-group-lg">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b> SELECT AWB</b></button>
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><select name = 'awb'><b> SELECT AWB</b></button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">9302658491</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">2233445566</a>
+              <a class="dropdown-item" = 'awb'></a>
+               <div class="dropdown-divider"></div>
+               <option value="" disabled selected>Select your AWB</option>
+              <?php
+              while ($row = mysqli_fetch_assoc($result)){
+              echo "<option value = ". $row['awb'].">". $row['awb']."</option>";
+              }
+         ?>
             </div>
+            </select>
           </div>
         </div>
+                
         <div class="col-md-6 text-center">
           <div class="btn-group btn-group-lg" style="">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b>SELECT CHECKPOINT</b></button>
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><select name = 'status'><b>SELECT CHECKPOINT</b></button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Delivered</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Not Home</a>
+            <option value="Not Home">Not Home</option>
+            <option value="Delivered">Delivered</option>
             </div>
+            </select>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  
   <div class="p-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <a class="btn btn-primary btn-lg" href=""><b>SUBMIT CHECKPOINT</b></a>
+          <input type="submit" class="btn text-center btn-primary" value="UPDATE CHECKPOINT">
         </div>
       </div>
     </div>
@@ -81,6 +103,9 @@
       </div>
     </div>
   </div>
+  
+</form>
+  
   <div class="py-2">
     <div class="container">
       <div class="row">
@@ -94,22 +119,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>1234567890</td>
-                <td>Delivered</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>0987654321</td>
-                <td>Delivered</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>5647382910</td>
-                <td>Not Home</td>
-              </tr>
+                <?php
+                $num = 1;
+                  while($row = mysqli_fetch_assoc($resultUpdates)){
+                    
+                  
+                  echo "<tr><td>".$num."</td>";
+                  echo "<td>".$row['awb']."</td>";
+                  echo "<td>".$row['status']."</td>";
+                  $num++;
+                  
+                  }
+                ?>
             </tbody>
+            
           </table>
         </div>
       </div>
@@ -122,7 +145,7 @@
           <a class="btn btn-primary btn-lg" href="RoutePlanner.html"><b>&lt; Route Planner</b></a>
         </div>
         <div class="col-md-6 text-right ">
-          <a class="btn btn-primary btn-lg" href="POD.html"><b>POD &gt;</b></a>
+          <a class="btn btn-primary btn-lg" href="POD.php"><b>POD &gt;</b></a>
         </div>
       </div>
     </div>

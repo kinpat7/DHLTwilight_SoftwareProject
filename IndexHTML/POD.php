@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+ <?php
+session_start();
+// 1. Enter Database details
+$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+$staffNo = $_SESSION['staffNo'];
+$sql = "SELECT * FROM shipments WHERE status='Delivered' AND pod IS NULL AND staffNo = $staffNo";
+$result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+
+?>
+
 <html>
 
 <head>
@@ -35,20 +44,28 @@
       </div>
     </div>
   </div>
+  
+ <form action="https://dhltwilight-patrickking25.c9users.io/IndexHTML/updatePOD.php" method="post">   
   <div class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="btn-group btn-group-lg">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><b> Select AWB</b></button>
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><select name = 'awb'><b> Select AWB</b></button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">1234567890</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">0987654321</a>
+               <a class="dropdown-item" = 'awb'></a>
+               <div class="dropdown-divider"></div>
+               <option value="" disabled selected>Select your AWB</option>
+              <?php
+              while ($row = mysqli_fetch_assoc($result)){
+              echo "<option value = ". $row['awb'].">". $row['awb']."</option>";
+              }
+         ?>
             </div>
+            </select>
           </div>
         </div>
-      </div>
+        
       <div class="row">
         <div class="col-md-12"> </div>
       </div>
@@ -67,8 +84,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form class="form-inline" method="post" action="https://formspree.io/">
-            <input type="text" name="POD Signiture" class="form-control w-100 border border-dark" placeholder="Enter Consignee Signiture Here..."> </form>
+            <input type="pod" name='pod' class="form-control w-100 border border-dark" placeholder="Enter Consignee Signiture Here..."> </form>
         </div>
       </div>
     </div>
@@ -77,11 +93,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <a class="btn btn-primary btn-lg" href=""><b>SUBMIT POD</b></a>
+          <input type="submit" class="btn text-center btn-primary" value="UPDATE CHECKPOINT">
         </div>
       </div>
     </div>
   </div>
+  </form>
+  <?php if(isset($_GET['update'])){ 
+ $updatedAWB = $_GET['update'];  
+  echo" <p style='color:green'>POD for $updatedAWB has been updated</p>";}?>
+  
   <div class="p-5">
     <div class="container">
       <div class="row">
@@ -91,7 +112,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <a class="btn btn-primary" href="UpdateCheckpoint.html">&lt; Checpoints</a>
+          <a class="btn btn-primary" href="UpdateCheckpoint.php">&lt; Checkpoints</a>
         </div>
       </div>
     </div>
