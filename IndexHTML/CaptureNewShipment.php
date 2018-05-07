@@ -51,7 +51,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
           <form action="updateAWB.php" method="post">
             <div class="form-group"> 
             
-            <label for="exampleTextarea">Capture AWB<?php if(isset($_GET['error'])){echo" <p style='color:red'>No such AWB</p>";}?></label> 
+            <label for="exampleTextarea">Capture AWB<?php if(isset($_GET['error'])){echo" <p style='color:red'>".$_GET['error']."</p>";}?></label> 
             <textarea class="form-control" name="awb" id="exampleTextarea" type="submit" rows="3"></textarea>
             <!--<a class="btn text-center btn-primary" ><b>CAPTURE AWB</b></a>-->
             <input type="submit" class="btn text-center btn-primary" value="CAPTURE AWB">
@@ -106,20 +106,20 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
     </div>
   </div>
   
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" style="">
-          <a class="btn btn-primary" href=""><b>SUBMIT ADDRESSES</b></a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--<div class="py-2">-->
+  <!--  <div class="container">-->
+  <!--    <div class="row">-->
+  <!--      <div class="col-md-12" style="">-->
+  <!--        <a class="btn btn-primary" href=""><b>SUBMIT ADDRESSES</b></a>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
   <div class="py-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <a class="btn btn-primary btn-block" href="RoutePlanner.html"><b>PLOT ROUTE
+          <a class="btn btn-primary btn-block" href="RoutePlanner.php"><b>PLOT ROUTE
             </b>
             <br> </a>
         </div>

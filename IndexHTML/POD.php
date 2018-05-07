@@ -3,8 +3,9 @@ session_start();
 // 1. Enter Database details
 $db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
 $staffNo = $_SESSION['staffNo'];
-$sql = "SELECT * FROM shipments WHERE status='Delivered' AND pod IS NULL AND staffNo = $staffNo";
+$sql = "SELECT * FROM shipments WHERE staffNo = $staffNo AND transmit ='No' AND statusCode IS NOT NULL" ;
 $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
+
 
 ?>
 
@@ -36,8 +37,8 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-12">
-              <h1 class="text-light"><b>Proof Of Delivery (POD)</b></h1>
-              <p class="text-light">Please request the consignee to enter their signiture below as Proof of Delivery</p>
+              <h1 class="text-light"><b>Transmit to DHL</b></h1>
+              <p class="text-light">Transmit Shipment update to DHL to display Tracking</p>
             </div>
           </div>
         </div>
@@ -45,7 +46,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
     </div>
   </div>
   
- <form action="https://dhltwilight-patrickking25.c9users.io/IndexHTML/updatePOD.php" method="post">   
+ <form action="transmitUpdate.php" method="post">   
   <div class="py-5">
     <div class="container">
       <div class="row">
@@ -58,12 +59,15 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                <option value="" disabled selected>Select your AWB</option>
               <?php
               while ($row = mysqli_fetch_assoc($result)){
-              echo "<option value = ". $row['awb'].">". $row['awb']."</option>";
+              echo "<option name='awb' value = ". $row['awb'].">". $row['awb']."</option>";
               }
          ?>
             </div>
             </select>
           </div>
+        </div>
+        </div>
+        </div>
         </div>
         
       <div class="row">
@@ -71,48 +75,68 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
       </div>
     </div>
   </div>
-  <div class="p-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="">POD Capture</h1>
+  <br>
+  <div class="col-md-12">
+    <!--<input type="submit">-->
+    <input type="submit" class="btn btn-primary btn-block" value="TRANSMIT TO DHL">
+          <!--<a class="btn btn-primary btn-block" type="submit"><b>TRANSMIT TO DHL</b>-->
+          <!--  <br> </a>-->
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="p-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-            <input type="pod" name='pod' class="form-control w-100 border border-dark" placeholder="Enter Consignee Signiture Here..."> </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="p-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <input type="submit" class="btn text-center btn-primary" value="UPDATE CHECKPOINT">
-        </div>
-      </div>
-    </div>
-  </div>
   </form>
-  <?php if(isset($_GET['update'])){ 
- $updatedAWB = $_GET['update'];  
-  echo" <p style='color:green'>POD for $updatedAWB has been updated</p>";}?>
   
-  <div class="p-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 p-3">
-          <a class="btn btn-primary" href="RoutePlanner.html">&lt; Route Planner</a>
+ <!-- <div class="p-3">-->
+ <!--   <div class="container">-->
+ <!--     <div class="row">-->
+ <!--       <div class="col-md-12">-->
+ <!--         <h1 class="">POD Capture</h1>-->
+ <!--       </div>-->
+ <!--     </div>-->
+ <!--   </div>-->
+ <!-- </div>-->
+ <!-- <div class="p-0">-->
+ <!--   <div class="container">-->
+ <!--     <div class="row">-->
+ <!--       <div class="col-md-12">-->
+ <!--           <input type="pod" name='pod' class="form-control w-100 border border-dark" placeholder="Enter Consignee Signiture Here..."> </form>-->
+ <!--       </div>-->
+ <!--     </div>-->
+ <!--   </div>-->
+ <!-- </div>-->
+ <!-- <div class="p-0">-->
+ <!--   <div class="container">-->
+ <!--     <div class="row">-->
+ <!--       <div class="col-md-12">-->
+ <!--         <input type="submit" class="btn text-center btn-primary" value="Add POD">-->
+ <!--       </div>-->
+ <!--     </div>-->
+ <!--   </div>-->
+ <!-- </div>-->
+ <?php if(isset($_GET['update'])){
+ $updatedAWB = $_GET['update']; 
+ echo" <p style='color:green'>POD for $updatedAWB has been updated</p>";}
+ ?>
+
+<br>
+<br>
+
+ <!-- <div class="py-3">-->
+ <!--   <div class="container">-->
+ <!--     <div class="row">-->
+        
+  
+  
+  <!--<div class="p-5">-->
+  <!--  <div class="container">-->
+  <!--    <div class="row">-->
+        <div class="col-md-6 text-left">
+                                    <!--<div class="col-md-6 text-left">-->
+          <a class="btn btn-primary" href="UpdateCheckpoint.php">&lt; Checkpoints</a>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <a class="btn btn-primary" href="UpdateCheckpoint.php">&lt; Checkpoints</a>
+      <br>
+      <!--<div class="row">-->
+        <div class="col-md-6 text-left">
+          <a class="btn btn-primary" href="RoutePlanner.php">&lt; Route Planner</a>
         </div>
       </div>
     </div>

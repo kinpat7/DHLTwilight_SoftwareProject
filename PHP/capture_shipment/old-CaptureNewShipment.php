@@ -58,7 +58,7 @@
  
  <?php
 // 1. Enter Database details
-$db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
+$db = mysqli_connect('localhost', 'root', '', 'patrickking25');
 
 $sql = "SELECT * FROM shipments WHERE status='With Courier'";
 $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");

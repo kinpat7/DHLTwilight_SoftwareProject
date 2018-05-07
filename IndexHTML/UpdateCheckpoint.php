@@ -7,6 +7,8 @@ $sql = "SELECT * FROM shipments WHERE status='With Courier' AND staffNo = $staff
 $sqlUpdates = "SELECT * FROM shipments WHERE status !='With Courier' AND staffNo = $staffNo";
 $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
 $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
+date_default_timezone_set('Europe/Dublin');
+$date = date('m/d/Y h:i:s a', time());
 ?>
 
 
@@ -23,7 +25,7 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
 <body class="">
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
-      <a class="navbar-brand" href="UserLandingPage.html"><b>DHL Twilight</b></a>
+      <a class="navbar-brand" href="UserLandingPage.php"><b>DHL Twilight</b></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
@@ -75,6 +77,7 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
             <div class="dropdown-menu">
             <option value="Not Home">Not Home</option>
             <option value="Delivered">Delivered</option>
+            <option value="" disabled selected>Select Checkpoint</option>
             </div>
             </select>
           </div>
@@ -83,13 +86,39 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
     </div>
   </div>
   
+  <!--<form action="https://dhltwilight-patrickking25.c9users.io/IndexHTML/updatePOD.php" method="post">     -->
+    <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="">POD Capture</h1>
+        </div>
+      </div>
+    </div>
+  </div>
   
-  <div class="p-3">
+    
+    <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <input type="pod" name='pod' class="form-control w-100 border border-dark" placeholder="Enter Consignee Signiture Here...">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="p-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <input type="submit" class="btn text-center btn-primary" value="UPDATE CHECKPOINT">
+          <?php if(isset($_GET['update'])){ 
+            $updatedAWB = $_GET['update'];  
+            echo" <p style='color:green'>POD for $updatedAWB has been updated</p>";}?>
         </div>
+        
+        
       </div>
     </div>
   </div>
@@ -97,14 +126,16 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="p-3">Updates
-            <br> </h1>
+          <h2 class="p-3">Shipment Status
+            <br> </h2>
         </div>
       </div>
     </div>
   </div>
-  
+
 </form>
+  
+  
   
   <div class="py-2">
     <div class="container">
@@ -116,6 +147,8 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
                 <th>#</th>
                 <th contenteditable="true">AWB</th>
                 <th>Checkpoint</th>
+                <th>POD</th>
+                <th>Complete</th>
               </tr>
             </thead>
             <tbody>
@@ -127,6 +160,8 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
                   echo "<tr><td>".$num."</td>";
                   echo "<td>".$row['awb']."</td>";
                   echo "<td>".$row['status']."</td>";
+                  echo "<td>".$row['pod']."</td>";
+                  echo "<td>".$row['transmit']."</td>";
                   $num++;
                   
                   }
@@ -138,17 +173,27 @@ $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
       </div>
     </div>
   </div>
-  <div class="py-5 mr-auto" style="">
-    <div class="container w-25 text-right">
-      <div class="row">
-        <div class="col-md-6 text-left">
-          <a class="btn btn-primary btn-lg" href="RoutePlanner.html"><b>&lt; Route Planner</b></a>
-        </div>
-        <div class="col-md-6 text-right ">
-          <a class="btn btn-primary btn-lg" href="POD.php"><b>POD &gt;</b></a>
+  
+                       <div class="p-3">
+                        <div class="container">
+                        <iframe="container">
+                        <div class="row">
+                          <div class="col-md-6 text-left">
+                            <a class="btn btn-primary" href="RoutePlanner.php"><b>&lt; Route Planner</b></a>
+                          </div>
+                          <div class="col-md-6 text-right">
+                            <a class="btn btn-primary" href="POD.php"><b>Finish &gt;</b></a>
+                        </div>
+                          </div>
+                        </div>
+                        </div>  
+  
+
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

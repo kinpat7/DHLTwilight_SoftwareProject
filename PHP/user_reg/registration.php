@@ -58,20 +58,20 @@
                   <input type="staffNo" name="staffNo" class="form-control" maxlength="4" placeholder="" value="<?php echo $staffNo; ?>"> 
                   </div>
                   
-                <div class="form-group"><label class="form-control-label">DHL eMail Address</label>
-                  <input type="email" name="email" class="form-control" placeholder="example@dhl.com" value="<?php echo $email; ?>"> 
-                  </div>
+                <!--<div class="form-group"><label class="form-control-label">DHL eMail Address</label>-->
+                <!--  <input type="email" name="email" class="form-control" placeholder="example@dhl.com" value="<?php echo $email; ?>"> -->
+                <!--  </div>-->
                   
-                <div class="form-group"><label class="form-control-label">DHL Twilight Username</label>
+                <div class="form-group"><label class="form-control-label">DHL Email Address</label>
                   <input type="username" name="username" class="form-control" placeholder="Username" value="<?php echo $username; ?>"> 
                   </div>
                   
                 <div class="form-group"><label class="form-control-label">DHL Twilight Password</label>
-                  <input type="password1" name="password_1" class="form-control" placeholder="Password"> 
+                  <input type="password" name="password_1" class="form-control" placeholder="Password"> 
                   </div>
                   
                 <div class="form-group"><label class="form-control-label">DHL Twilight Confirm Password</label>
-                  <input type="password2" name="password_2" class="form-control" placeholder="Confirm Password"> 
+                  <input type="password" name="password_2" class="form-control" placeholder="Confirm Password"> 
                   </div>  
                 
   	           <div class="form-group">
@@ -81,11 +81,11 @@
               </form>
               
             </div>
-            <div class="card-footer text-muted">* Registration will be confirmed and access to the site granted on supply of your DHL Express employee badge to the DHL Twilight Administrator</div>
+            <div  style="text-align:center" class="card-footer text-muted">* Registration will be confirmed and access to the site granted on supply of your DHL Express employee badge to the DHL Twilight Administrator</div>
           </div>
         </div>
         <div class="align-self-col-md-10 text-white">
-          <h1 class="text-center text-md-left display-3 text-dark"><b class="text-center">Register for&nbsp;<br>DHL Twilight!<br></b></h1>
+          <h1 class="text-center text-md-left display-4 text-dark"><b class="text-center">Register for &nbsp;<br>DHL Twilight!<br></b></h1>
           <p class="lead text-dark"><b><b>For DHL Express Employess Only</b></b>
           </p>
         </div>

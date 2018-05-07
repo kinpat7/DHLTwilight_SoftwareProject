@@ -19,6 +19,7 @@
       <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav"></ul>
+          <a class="btn navbar-btn ml-2 text-white btn-secondary" href="userProfile.php"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Profile</a>
         <a class="btn navbar-btn ml-2 text-white btn-secondary" href="DHLTwilight.html"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign Out</a>
       </div>
     </div>
@@ -40,11 +41,11 @@
         <div class="p-3 align-self-center col-md-6">
           <div class="card">
             <div class="card-block p-5 bg-light">
-              <h1><span style="font-size: 30px;">Get Started! &nbsp;</span></h1>
+              <h1><span style="font-size: 30px">Get Started! &nbsp;</span></h1>
               <h3>Log New Shipments</h3>
               <hr>
               <p>Start the new delivery process and log new shipments, view the optimal route planner, update checkpoints and capture the consignee POD!</p>
-              <a href="CaptureNewShipment.php" class="btn btn-dark">LOG NEW SHIPMENTS</a>
+              <a href="CaptureNewShipment.php" class="btn btn-dark">NEW SHIPMENT</a>
             </div>
           </div>
         </div>
@@ -58,6 +59,29 @@
               <a href="ShipmentHistory.php" class="btn btn-dark">SHIPMENT HISTORY</a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="p-4 col-md-6">
+          <h2 class="mb-4 text-secondary">DHL Express Ireland</h2>
+          <p class="text-white">DHL Express (Ireland) Ltd&nbsp;
+            <br>Unit 3 Elm Road Dublin Airport Logistics Park&nbsp;</p>
+          <div>St. Margarets Road&nbsp;</div>
+          <div>St. Margarets&nbsp;</div>
+          <div>Dublin</div>
+        </div>
+        <div class="p-4 col-md-6">
+          <h2 class="mb-4">Contact</h2>
+          <p>
+            <a href="tel:+353 1870 ****" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+353 123456789</a>
+          </p>
+          <p>
+            <a href="mailto:dhl.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>patrick@student.ncirl.com</a>
+          </p>
         </div>
       </div>
     </div>

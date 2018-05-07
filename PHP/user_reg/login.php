@@ -28,17 +28,17 @@
         <div class="col-md-6">
           <div class="card text-white p-5 bg-primary">
             <div class="card-body">
-              <h1 class="mb-4">Login form</h1>
+              <h1 class="mb-4">Login</h1>
               <!--<form action="https://formspree.io/YOUREMAILHERE">-->
               <form name="form1" method="post" action="login.php">
                 <?php include('errors.php'); ?>
                 <div class="input-group"> <label>Username</label>
                   <input name="username" type="text" id="username"> </div>
-                <div class="input-group"> <label>Password</label>
+                <div class="input-group"> <label> &nbsp;Password</label>
                   <input name="password" type="password" id="password"> </div>
-                  <button type="submit" class="btn" name="login_user">Login</button>
+                  <button type="submit" class="btn btn-danger" name="login_user">Login</button>
                     <p>
-                      Not yet a member? <a href="registration.php">Sign up</a>
+                      Not yet a member? <a style= color:red href="registration.php">Sign up</a>
   	                 </p>
               </form>
             </div>
@@ -52,24 +52,24 @@
       <div class="row">
         <div class="p-4 col-md-5">
           <h2 class="mb-4 text-secondary">DHL Express Ireland</h2>
-          <p class="text-white">A company for whatever you may need, from website prototyping to publishing</p>
+          <p class="text-white">DHL Express (Ireland) Ltd Unit 3. Elm Road. Dublin Airport Logistics Park</p>
         </div>
         <div class="p-4 col-md-5">
           <h2 class="mb-4">Contact</h2>
           <p>
-            <a href="tel:+246 - 542 550 5462" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+246 - 542 550 5462</a>
+            <a href="tel:+246 - 542 550 5462" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+353 123456789</a>
           </p>
           <p>
-            <a href="mailto:info@pingendo.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>dhl.com</a>
+            <a href="mailto:info@pingendo.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>www.dhl.com</a>
           </p>
-          <p>
-            <a href="https://goo.gl/maps/AUq7b9W7yYJ2" class="text-white" target="_blank"><i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>365 Park Street, NY</a>
-          </p>
+          <!--<p>-->
+          <!--  <a href="https://goo.gl/maps/AUq7b9W7yYJ2" class="text-white" target="_blank"><i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>Unit 3. Elm Road. Dublin Airport Logistics Park</a>-->
+          <!--</p>-->
         </div>
       </div>
       <div class="row">
         <div class="col-md-12 mt-3">
-          <p class="text-center text-white">© Copyright 2017 DHL Express - All rights reserved. </p>
+          <p class="text-center text-white">&copy; Copyright 2018 DHL Express - All rights reserved. </p>
         </div>
       </div>
     </div>

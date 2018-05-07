@@ -59,13 +59,14 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Courier ID</th>
+                <!--<th>#</th>-->
+                <!--<th>Courier ID</th>-->
                 <th>AWB Number</th>
                 <th>Status</th>
                 <th>Delivery Address</th>
                 <th>City</th>
                 <th>POD</th>
+                <th>Date</th>
                 
               </tr>
             </thead>
@@ -75,13 +76,14 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                   while($row = mysqli_fetch_assoc($result)){
                     
                   
-                  echo "<tr><td>".$num."</td>";
-                  echo "<td>".$row['staffNo']."</td>";
+                  // echo "<tr><td>".$num."</td>";
+                  // echo "<td>".$row['staffNo']."</td>";
                   echo "<td>".$row['awb']."</td>";
                   echo "<td>".$row['status']."</td>";
                   echo "<td>".$row['address']."</td>";
                   echo "<td>".$row['city']."</td>";
-                  echo "<td>".$row['pod']."</td></tr>";
+                  echo "<td>".$row['pod']."</td>";
+                  echo "<td>".$row['date']."</td></tr>";
                   $num++;
                   
                   }
