@@ -126,8 +126,8 @@ $date = date('m/d/Y h:i:s a', time());
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="p-3">Shipment Status
-            <br> </h2>
+          <!--<h3 class="p-3">Shipment Status-->
+          <!--  <br> </h3>-->
         </div>
       </div>
     </div>
@@ -182,7 +182,7 @@ $date = date('m/d/Y h:i:s a', time());
                             <a class="btn btn-primary" href="RoutePlanner.php"><b>&lt; Route Planner</b></a>
                           </div>
                           <div class="col-md-6 text-right">
-                            <a class="btn btn-primary" href="POD.php"><b>Finish &gt;</b></a>
+                            <a class="btn btn-primary" href="POD.php"><b>Transmit &gt;</b></a>
                         </div>
                           </div>
                         </div>

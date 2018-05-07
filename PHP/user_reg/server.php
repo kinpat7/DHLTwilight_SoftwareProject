@@ -31,10 +31,14 @@ if (isset($_POST['reg_user'])) {
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($phone)) { array_push($errors, "Phone Number is required"); }
-  if (empty($username)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if (empty($name)) { array_push($errors, "*Name is required"); }
+  if (empty($address)) { array_push($errors, "*Address is required"); }
+  if (empty($city)) { array_push($errors, "*City is required"); }
+  if (empty($phone)) { array_push($errors, "*Phone Number is required"); }
+  if (empty($dept)) { array_push($errors, "*Department is required"); }
+  if (empty($staffNo)) { array_push($errors, "*Staff Number is required"); }
+  if (empty($username)) { array_push($errors, "*Email is required"); }
+  if (empty($password_1)) { array_push($errors, "*Password is required"); }
   if ($password_1 != $password_2) {
 	array_push($errors, "The two passwords do not match");
   }

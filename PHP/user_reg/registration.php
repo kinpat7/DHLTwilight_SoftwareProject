@@ -39,23 +39,23 @@
                   </div>
                 
                 <div class="form-group"> <label>Address</label>
-                  <input type="address" name="address" class="form-control" placeholder="Your home address" value="<?php echo $address; ?>"> 
+                  <input type="text" name="address" class="form-control" placeholder="Your home address" value="<?php echo $address; ?>"> 
                   </div>
                   
                 <div class="form-group"> <label>City</label>
-                  <input type="city" name="city" class="form-control" placeholder="Your City" value="<?php echo $city; ?>"> 
+                  <input type="text" name="city" class="form-control" placeholder="Your City" value="<?php echo $city; ?>"> 
                   </div>
                   
                 <div class="form-group"> <label>Phone Number</label>
-                  <input type="phone" name="phone" class="form-control" maxlength="30" placeholder="Telephone Number" value="<?php echo $phone; ?>"> 
+                  <input type="number" name="phone" class="form-control" maxlength="30" placeholder="Telephone Number" value="<?php echo $phone; ?>"> 
                   </div>
                   
                 <div class="form-group"> <label>DHL Express Department</label>
-                  <input type="dept" name="dept" class="form-control" placeholder="Operations, Sales, eCom" value="<?php echo $dept; ?>"> 
+                  <input type="text" name="dept" class="form-control" placeholder="Operations, Sales, eCom" value="<?php echo $dept; ?>"> 
                   </div>
                   
                 <div class="form-group"><label class="form-control-label">DHL Express Staff Number</label>
-                  <input type="staffNo" name="staffNo" class="form-control" maxlength="4" placeholder="" value="<?php echo $staffNo; ?>"> 
+                  <input type="number" name="staffNo" class="form-control" maxlength="4" placeholder="" value="<?php echo $staffNo; ?>"> 
                   </div>
                   
                 <!--<div class="form-group"><label class="form-control-label">DHL eMail Address</label>-->
@@ -63,7 +63,7 @@
                 <!--  </div>-->
                   
                 <div class="form-group"><label class="form-control-label">DHL Email Address</label>
-                  <input type="username" name="username" class="form-control" placeholder="Username" value="<?php echo $username; ?>"> 
+                  <input type="email" name="email" class="form-control" placeholder="Username" value="<?php echo $username; ?>"> 
                   </div>
                   
                 <div class="form-group"><label class="form-control-label">DHL Twilight Password</label>
@@ -75,7 +75,7 @@
                   </div>  
                 
   	           <div class="form-group">
-  	              <button type="submit" class="btn" name="reg_user">Register</button>
+  	              <button type="submit" class="btn-primary" name="reg_user">Register</button>
             	</div>
                 
               </form>
