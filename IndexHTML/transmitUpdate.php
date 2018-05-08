@@ -79,9 +79,9 @@ fclose($myfile);
 
 // echo $myfile;
 
-$ftp_server = "ftp3.dhl.com";
-$ftp_username = "tapadoo";
-$ftp_userpass = "me8reCrA";
+$ftp_server = "********com";
+$ftp_username = "********";
+$ftp_userpass = "********";
 $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
 $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
 ftp_pasv($ftp_conn, true);
