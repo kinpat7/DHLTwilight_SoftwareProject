@@ -20,11 +20,11 @@ $date = $POST['date'];
 
 // if {
     $sql = "UPDATE shipments SET staffNo = $staffNo WHERE awb = $AWB AND staffNo = '0'";
-    mysqli_query($db, $sql) or die (header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php?error=Update Failed'));
+    mysqli_query($db, $sql) or die (header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php?error=Please enter AWB'));
     
     //"Bad Query:$sql"
-//     header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php');
+    header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php');
 // }else{
-//     header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php?error=AWB Not Valid');
+    // header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/CaptureNewShipment.php?error=AWB Not Valid');
 // }
 ?>

@@ -4,7 +4,7 @@ session_start();
 $db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
 $staffNo = $_SESSION['staffNo'];
 $sql = "SELECT * FROM shipments WHERE status='With Courier' AND staffNo = $staffNo";
-$sqlUpdates = "SELECT * FROM shipments WHERE status !='With Courier' AND staffNo = $staffNo";
+$sqlUpdates = "SELECT * FROM shipments WHERE status !='With Courier' AND staffNo = $staffNo AND transmit ='No' ";
 $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
 $resultUpdates = mysqli_query($db, $sqlUpdates) or die ("Bad Query:$sql");
 date_default_timezone_set('Europe/Dublin');
@@ -57,7 +57,7 @@ $date = date('m/d/Y h:i:s a', time());
         <div class="col-md-6 text-center">
           <div class="btn-group btn-group-lg">
             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><select name = 'awb'><b> SELECT AWB</b></button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" required>
               <a class="dropdown-item" = 'awb'></a>
                <div class="dropdown-divider"></div>
                <option value="" disabled selected>Select your AWB</option>
@@ -86,6 +86,12 @@ $date = date('m/d/Y h:i:s a', time());
     </div>
   </div>
   
+        <?php
+          if ($_GET['message']=='empty') {
+          echo "<h1 align='center' >*Please select an AWB & Checkpoint</h1>";
+        }
+        ?>
+  
   <!--<form action="https://dhltwilight-patrickking25.c9users.io/IndexHTML/updatePOD.php" method="post">     -->
     <div class="p-3">
     <div class="container">
@@ -96,8 +102,7 @@ $date = date('m/d/Y h:i:s a', time());
       </div>
     </div>
   </div>
-  
-    
+
     <div class="p-0">
     <div class="container">
       <div class="row">
@@ -148,7 +153,7 @@ $date = date('m/d/Y h:i:s a', time());
                 <th contenteditable="true">AWB</th>
                 <th>Checkpoint</th>
                 <th>POD</th>
-                <th>Complete</th>
+                <th>Transmitted to DHL</th>
               </tr>
             </thead>
             <tbody>

@@ -76,9 +76,26 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
     </div>
   </div>
   <br>
+        <?php
+          if ($_GET['status']=='blank') {
+          echo "<h1 align='center' >*Please select an AWB</h1>";
+        }
+        ?>
+        
   <div class="col-md-12">
     <!--<input type="submit">-->
     <input type="submit" class="btn btn-primary btn-block" value="TRANSMIT TO DHL">
+    <?php
+    if ($_GET['status']=='success') {
+      echo "<h1 align='center' style='color:red'>Checkpoint Successfully sent to DHL!</h1>";
+    }
+    ?>
+    
+            <?php
+          if ($_GET['message']=='empty') {
+          echo "<h1 align='center' >*Please select an AWB & Checkpoint</h1>";
+        }
+        ?>
           <!--<a class="btn btn-primary btn-block" type="submit"><b>TRANSMIT TO DHL</b>-->
           <!--  <br> </a>-->
         </div>

@@ -11,8 +11,13 @@ $time = date('His');
 $AWB = (int)$_POST['awb'];
 $status = $_POST['status'];
 $pod = $_POST['pod'];
-//var_dump($_POST); //. "<br>";
-//$AWB = (int)$AWB;
+print_r($_POST);
+
+if(!isset($_POST['status' || 'awb'])){
+
+header('location: UpdateCheckpoint.php?message=empty');
+
+}
 
 echo $checkpointStatus = $_POST['status'];
 echo "<br>";
@@ -27,10 +32,10 @@ mysqli_query($db, $sqlStatusNH);
 mysqli_query($db, $sqlDate);
 mysqli_query($db, $sqlStatusOK) or die (header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/UpdateCheckpoint.php?error=1'));
 
-
 // echo "awb: ".$AWB.'<br>';
 // echo "cp: " .$checkpointStatus;
 //echo $status;
 //"Bad Query:$sql"
 header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/UpdateCheckpoint.php');
+
 ?>

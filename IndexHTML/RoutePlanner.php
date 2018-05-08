@@ -31,7 +31,7 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
             }
             
             #right-panel select {
-                width: 100%;
+                width: 150%;
             }
             
             #right-panel i {
@@ -152,8 +152,6 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                                 </select>
                                 <br>
                                 <b>Waypoints:</b>
-                                <br>
-                                <i>(Ctrl+Click or Cmd+Click for multiple selection)</i>
                                 <br>
                                 <select multiple id="waypoints">
                                     <?php

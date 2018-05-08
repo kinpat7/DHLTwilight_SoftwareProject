@@ -2,7 +2,11 @@
 session_start();
 //echo "here";
 $awb = $_POST['awb'];
-//echo $awb;
+
+if(!isset($_POST['awb'])){
+header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/POD.php?status=blank');
+} 
+
 // 1. Enter Database details
 $db = mysqli_connect('localhost', 'patrickking25', '', 'Members');
 $staffNo = $_SESSION['staffNo'];
@@ -19,26 +23,26 @@ $date = "";
 $time = "";
 while($row = mysqli_fetch_assoc($result)){
         $id =  $row['id'];
-        $pid =   $row['pieceID'];
+        $pid =   $row['pieceNo'];
         $sc = $row['statusCode'];
         $pod = $row['pod'];
         $date = $row['date'];
         $time = $row['time'];
     }
     
-
+   
 date_default_timezone_set('Europe/Dublin');
-$date = date('Ymdhis');
+$date = date('Ymd');
 $dateFile = date('Ymdhis_').$awb;
 
-// ftp://tapadoo:me8reCrA@ftp3.dhl.com/in/twilight
+
 $myfile = fopen("testfile/$dateFile.txt", "w") or die("Unable to open file!");
 
 $txt = "H;";
 fwrite($myfile, $txt);
 $txt = $date.";";
 fwrite($myfile, $txt);
-$txt = "PKTWILIGHT;\n";
+$txt = "PKTWILIGHT\n";
 fwrite($myfile, $txt);
 $txt = "D;";
 fwrite($myfile, $txt);
@@ -68,7 +72,7 @@ $txt = "A\n";
 fwrite($myfile, $txt);
 $txt = "T;";
 fwrite($myfile, $txt);
-$txt = $id.";";
+$txt = $id."\n";
 fwrite($myfile, $txt);
 fclose($myfile);
 
@@ -83,9 +87,6 @@ $login = ftp_login($ftp_conn, $ftp_username, $ftp_userpass);
 ftp_pasv($ftp_conn, true);
 
 $file = "testfile/$dateFile.txt";
-
-
-
 
 
 // // upload file
@@ -104,7 +105,7 @@ ftp_close($ftp_conn);
 
 
 
-header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/POD.php');
+header('location: https://dhltwilight-patrickking25.c9users.io/IndexHTML/POD.php?status=success');
 
 ?>
 
