@@ -42,7 +42,7 @@ $date = date('m/d/Y h:i:s a', time());
           <div class="row">
             <div class="col-md-12">
               <h1 class="text-light"><b>Update Checkpoint</b></h1>
-              <p class="text-light">Select an AWB and the new checkpoint</p>
+              <p class="text-light">Select an AWB, Checkpoint and enter the customers POD</p>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ $date = date('m/d/Y h:i:s a', time());
   
         <?php
           if ($_GET['message']=='empty') {
-          echo "<h1 align='center' >*Please select an AWB & Checkpoint</h1>";
+          echo "<h1 align='center' >*Please select a Checkpoint*</h1>";
         }
         ?>
   
@@ -97,7 +97,7 @@ $date = date('m/d/Y h:i:s a', time());
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="">POD Capture</h1>
+          <h4 class="">POD Capture</h4>
         </div>
       </div>
     </div>
@@ -146,6 +146,7 @@ $date = date('m/d/Y h:i:s a', time());
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <div style="overflow-x:auto;">
           <table class="table">
             <thead>
               <tr>
@@ -178,6 +179,8 @@ $date = date('m/d/Y h:i:s a', time());
       </div>
     </div>
   </div>
+  </div>
+  
   
                        <div class="p-3">
                         <div class="container">
@@ -194,7 +197,7 @@ $date = date('m/d/Y h:i:s a', time());
                         </div>  
   
 
-        </div>
+        
       </div>
     </div>
   </div>

@@ -12,13 +12,9 @@
 <body class="bg-dark">
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
-      <a class="navbar-brand" href="DHLTwilight.html"><b>DHL Twilight</b></a>
+      <a class="navbar-brand" href="/IndexHTML/DHLTwilight.html"><b>DHL Twilight</b></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> </button>
-      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-        <ul class="navbar-nav"></ul>
-        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="UserLandingPage.php"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
-      </div>
     </div>
   </nav>
   <div class="py-5" style="background-image: url(&quot;/Images/DHLbackground.png&quot;);">
@@ -47,29 +43,26 @@
       </div>
     </div>
   </div>
-  <div class="bg-dark text-white">
+  </div>
+   <div class="bg-dark text-white">
     <div class="container">
       <div class="row">
-        <div class="p-4 col-md-5">
+        <div class="p-4 col-md-6">
           <h2 class="mb-4 text-secondary">DHL Express Ireland</h2>
-          <p class="text-white">DHL Express (Ireland) Ltd Unit 3. Elm Road. Dublin Airport Logistics Park</p>
+          <p class="text-white">DHL Express (Ireland) Ltd&nbsp;
+            <br>Unit 3 Elm Road Dublin Airport Logistics Park&nbsp;</p>
+          <div>St. Margarets Road&nbsp;</div>
+          <div>St. Margarets&nbsp;</div>
+          <div>Dublin</div>
         </div>
-        <div class="p-4 col-md-5">
+        <div class="p-4 col-md-6">
           <h2 class="mb-4">Contact</h2>
           <p>
-            <a href="tel:+246 - 542 550 5462" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+353 123456789</a>
+            <a href="tel:+353 1870 ****" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+353 123456789</a>
           </p>
           <p>
-            <a href="mailto:info@pingendo.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>www.dhl.com</a>
+            <a href="mailto:dhl.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>dhl@dhl.com</a>
           </p>
-          <!--<p>-->
-          <!--  <a href="https://goo.gl/maps/AUq7b9W7yYJ2" class="text-white" target="_blank"><i class="fa d-inline mr-3 fa-map-marker text-secondary"></i>Unit 3. Elm Road. Dublin Airport Logistics Park</a>-->
-          <!--</p>-->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 mt-3">
-          <p class="text-center text-white">&copy; Copyright 2018 DHL Express - All rights reserved. </p>
         </div>
       </div>
     </div>

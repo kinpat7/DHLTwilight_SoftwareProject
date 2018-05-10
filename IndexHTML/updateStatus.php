@@ -13,10 +13,10 @@ $status = $_POST['status'];
 $pod = $_POST['pod'];
 print_r($_POST);
 
-if(!isset($_POST['status' || 'awb'])){
+if(!isset($_POST['status'])){
 
 header('location: UpdateCheckpoint.php?message=empty');
-
+echo close();
 }
 
 echo $checkpointStatus = $_POST['status'];

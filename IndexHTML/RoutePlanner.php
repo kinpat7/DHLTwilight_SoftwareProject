@@ -77,13 +77,13 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
             <div class="container">
-                <a class="navbar-brand" href="UserLandingPage.html"><b>DHL Twilight</b></a>
+                <a class="navbar-brand" href="UserLandingPage.php"><b>DHL Twilight</b></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span> </button>
-                <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+                     <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav"></ul>
-                    <a class="btn navbar-btn ml-2 text-white btn-secondary"><i class="fa d-inline fa-lg fa-user-circle-o"></i>Sign Out</a>
-                </div>
+                    <a class="btn navbar-btn ml-2 text-white btn-secondary" href="DHLTwilight.html"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign Out</a>
+              </div>
             </div>
         </nav>
         <div class="py-5 text-center bg-primary gradient-overlay">
@@ -93,7 +93,7 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="text-light"><b>Route Planner</b></h1>
-                                <p class="text-light">Optimal Route is displayed for your deliveries</p>
+                                <p class="text-light">Select Delivery Points and submit to display Optimal Route for your deliveries</p>
                             </div>
                         </div>
                     </div>
@@ -104,6 +104,7 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
             <div class="container">
                 <div class="row">
                     <div class="col-md-12" style="">
+                        <div style="overflow-x:auto;">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -135,6 +136,7 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                 </div>
             </div>
         </div>
+        </div>
 
         <div class="py-2">
             <div class="container">
@@ -151,7 +153,7 @@ $resultmaps = mysqli_query($db, $sql) or die ("Bad Query:$sql");
                                     <option value="DHL Express, Dublin Airport Logistics Park, St Margarets, Dublin, Ireland">DHL Express HUB, Dublin</option>
                                 </select>
                                 <br>
-                                <b>Waypoints:</b>
+                                <b>Delivery Points:</b>
                                 <br>
                                 <select multiple id="waypoints">
                                     <?php

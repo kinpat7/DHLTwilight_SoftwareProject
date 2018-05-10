@@ -21,7 +21,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
-      <a class="navbar-brand" href="UserLandingPage.html"><b>  DHL Twilight</b></a>
+      <a class="navbar-brand" href="UserLandingPage.php"><b>  DHL Twilight</b></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
@@ -38,7 +38,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
           <div class="row">
             <div class="col-md-12">
               <h1 class="text-light"><b>Transmit to DHL</b></h1>
-              <p class="text-light">Transmit Shipment update to DHL to display Tracking</p>
+              <p class="text-light">Select AWB & Transmit New Shipment Status to DHL</p>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
   <br>
         <?php
           if ($_GET['status']=='blank') {
-          echo "<h1 align='center' >*Please select an AWB</h1>";
+          echo "<h1 align='center' >*Please select an AWB*</h1>";
         }
         ?>
         

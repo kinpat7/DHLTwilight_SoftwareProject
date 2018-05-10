@@ -21,8 +21,20 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
 </head>
 
 <body>
-<?php include("header.php");?>
-  <div class="py-5 text-center bg-primary gradient-overlay">
+  
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="UserLandingPage.php"><b>  DHL Twilight</b></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav"></ul>
+        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="DHLTwilight.html"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign Out</a>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 gradient-overlay text-center bg-primary">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -36,10 +48,28 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
       </div>
     </div>
   </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+
+  
+  
+
+<!--  <div class="py-5 text-center bg-primary gradient-overlay">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--              <h1 class="text-light"><b>Capture New Shipment</b></h1>-->
+<!--              <p class="text-light">Enter the AWB of assigned shipments below &amp; click on 'Capture AWB'.</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="py-2">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-12">-->
           
           
           <!--<form action="updateAWB.php" method="post">-->
@@ -47,11 +77,11 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
           <!--    <a class="btn text-center btn-primary" ><b>CAPTURE AWB</b></a>-->
           <!--  </div>-->
           <!--</form>-->
-          
+<br>          
           <form action="updateAWB.php" method="post">
             <div class="form-group"> 
             
-            <label for="exampleTextarea">Capture AWB<?php if(isset($_GET['error'])){echo" <p style='color:red'>".$_GET['error']."</p>";}?></label> 
+            <label for="exampleTextarea">Enter AWB<?php if(isset($_GET['error'])){echo" <p style='color:red'>".$_GET['error']."</p>";}?></label> 
             <textarea class="form-control" name="awb" id="exampleTextarea" type="submit" rows="3"></textarea>
             <!--<a class="btn text-center btn-primary" ><b>CAPTURE AWB</b></a>-->
             <input type="submit" class="btn text-center btn-primary" value="CAPTURE AWB">
@@ -67,6 +97,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <div style="overflow-x:auto;">
           <table class="table">
             <thead>
               <tr>
@@ -105,6 +136,7 @@ $result = mysqli_query($db, $sql) or die ("Bad Query:$sql");
       </div>
     </div>
   </div>
+   </div>
   
   <!--<div class="py-2">-->
   <!--  <div class="container">-->

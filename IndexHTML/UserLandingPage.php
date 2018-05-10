@@ -14,7 +14,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
-      <a class="navbar-brand" href="DHLTwilight.html"><b>DHL Twilight</b></a>
+      <a class="navbar-brand" href="UserLandingPage.php"><b>DHL Twilight</b></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
@@ -42,7 +42,7 @@
           <div class="card">
             <div class="card-block p-5 bg-light">
               <h1><span style="font-size: 30px">Get Started! &nbsp;</span></h1>
-              <h3>Log New Shipments</h3>
+              <h4>Log New Shipments</h4>
               <hr>
               <p>Start the new delivery process and log new shipments, view the optimal route planner, update checkpoints and capture the consignee POD!</p>
               <a href="CaptureNewShipment.php" class="btn btn-dark">NEW SHIPMENT</a>
@@ -53,7 +53,7 @@
           <div class="card">
             <div class="card-block p-5">
               <h1><span style="font-size: 30px;">View Shipment History</span></h1>
-              <h3>List of all completed deliveries you have made!</h3>
+              <h4>List of all completed deliveries you have made!</h4>
               <hr>
               <p>Click on the below button to view you delivery history</p>
               <a href="ShipmentHistory.php" class="btn btn-dark">SHIPMENT HISTORY</a>
@@ -80,7 +80,7 @@
             <a href="tel:+353 1870 ****" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-phone"></i>+353 123456789</a>
           </p>
           <p>
-            <a href="mailto:dhl.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>patrick@student.ncirl.com</a>
+            <a href="mailto:dhl.com" class="text-white"><i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>dhl@dhl.ncirl.com</a>
           </p>
         </div>
       </div>

@@ -13,12 +13,12 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
-      <a class="navbar-brand" href="#"><b>DHL Twilight</b></a>
+      <a class="navbar-brand" href="/IndexHTML/DHLTwilight.html"><b>DHL Twilight</b></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav"></ul>
-        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="DHLT_LoginPage.html"><i class="fa d-inline fa-lg fa-user-circle-o"></i>Register</a>
+        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="login.php"><i class="fa d-inline fa-lg fa-user-circle-o"></i>Log In</a>
       </div>
     </div>
   </nav>
@@ -63,7 +63,7 @@
                 <!--  </div>-->
                   
                 <div class="form-group"><label class="form-control-label">DHL Email Address</label>
-                  <input type="email" name="email" class="form-control" placeholder="Username" value="<?php echo $username; ?>"> 
+                  <input type="email" name="username" class="form-control" placeholder="Username" value="<?php echo $username; ?>"> 
                   </div>
                   
                 <div class="form-group"><label class="form-control-label">DHL Twilight Password</label>
@@ -81,7 +81,7 @@
               </form>
               
             </div>
-            <div  style="text-align:center" class="card-footer text-muted">* Registration will be confirmed and access to the site granted on supply of your DHL Express employee badge to the DHL Twilight Administrator</div>
+            <div  style="text-align:center" class="card-footer text-muted">* Registration will be confirmed and shipment delivery granted on supply of your DHL Express employee badge to the DHL Twilight Administrator</div>
           </div>
         </div>
         <div class="align-self-col-md-10 text-white">
